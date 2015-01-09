@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <script type="text/javascript" src="src/underscore.js"></script>
+        <script type="text/javascript" src="src/beautify.js"></script>
+
+        <script type="text/javascript" src="src/kill.parser.js"></script>
+        <script type="text/javascript" src="src/jsDump.js"></script>
+        <script type="text/javascript" src="src/internal.js"></script>
+        <script type="text/javascript" src="src/compiler.js"></script>
+        <script type="text/javascript" src="src/env.js"></script>
+        <script type="text/javascript" src="src/ace-builds-1.1.5-min-noconflict/ace.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+    <h1>KILL workspace // Kimmy's Interpreter for Lambda the Limited</h1>
+    <p>Press `F12` or open browser console to see <strong>trace</strong>. <a href="https://github.com/kenpusney/KILL#syntax">syntax reference</a></p>
+        <div class="clear"></div>
+        <div id="left">
+<div id="editor">
+let fib :=
+    \i \m \n ->
+        if zero i
+        then id m
+        else fib (sub i 1) n (add m n)
+
+let x :=
+        1,
+    y :=
+        24
+
+[trace (fib a 0 1) | a in range x y if odd a]
+</div>
+        <button onclick="dump()">DUMP</button>
+        <button onclick="dumpSource()">COMPILE(BETA)</button>
+        </div>
+        <div id="ast"></div>
+        <button onclick="kill.env.evil(compile(source()))">RunJS</button>
+        <div class="clear"></div>
+        <script type="text/javascript">
+            function dump(){
+                try{
+                    ace.edit("ast").setValue(jsDump.parse(kill.parser.parse(ace.edit("editor").getValue().replace(/\r\n?/g,"\n"))))
+                }catch(e){
+                    console.log(e);
+                }
+            }
+            function dumpSource() {
+                try{
+                    ace.edit("ast").setValue(compile(source()));
+                }catch(e){
+                    console.log(e);
+                }
+            }
+            function compile(source) {
+                return js_beautify(
+                        kill.compiler.compile(
+                                kill.parser.parse(
+                                        source
+                                )
+                        ));
+            }
+            function source() {
+                try{
+                    return ace.edit("editor").getValue().replace(/\r\n?/g,"\n");
+                }catch(e){
+                    console.log(e);
+                }
+            }
+        </script>
+        <script>
+            var editor = ace.edit("editor");
+            var ast = ace.edit("ast");
+            editor.setTheme("ace/theme/monokai");
+            editor.getSession().setMode("ace/mode/haskell");
+            
+            ast.setTheme("ace/theme/chrome");
+            ast.getSession().setMode("ast/mode/javascript");
+            ast.setShowPrintMargin(false);
+            ast.setReadOnly(true);
+        </script>
+    </body>
+</html>

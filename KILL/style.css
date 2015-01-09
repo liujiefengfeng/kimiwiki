@@ -1,0 +1,15 @@
+#left{
+    float: left;
+    display: inline;
+}
+.clear{
+    clear: both;
+}
+#editor {
+    width: 500px;
+    height: 350px;
+}
+#ast {
+    width: 400px;
+    height: 350px;
+}
