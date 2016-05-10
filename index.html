@@ -5,10 +5,34 @@
     <meta charset='utf-8' />
     <meta name="description" content="Kim Leo's PLT Collection" />
     <title>Kim Leo's PLT Collection</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script type="text/javascript" src="http://zeptojs.com/zepto.min.js"></script>
+    <script type="text/javascript" src="/_js/marked.min.js"></script>
   </head>
 
-  <body>
+  <body style="margin: 0 auto; width: 70%">
 	<h4>This page is deprecated, please see <a href="/index.txt">this page</a> instead</h4>
 	<h5>If you still have something confused, please go see <a href="/faq.txt">FAQ page</a>.</h5>
   </body>
+
+  <script type="text/javascript">
+    function render(hash) {
+      $.get(hash.replace(/^#/, "/") + ".txt", function(data, err) {
+        if (err === "success") {
+          $("body").html(marked(data));
+        }
+      });
+    }
+    $(function() {
+      if (location.hash) {
+        render(location.hash)
+      } else {
+        render("#index")
+      }
+    })
+    $(window).on("hashchange", function(e) {
+      render(location.hash)
+      e.preventDefault();
+    });
+  </script>
 </html>
