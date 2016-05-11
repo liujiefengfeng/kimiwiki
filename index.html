@@ -15,8 +15,28 @@
     	<h4>This page is deprecated, please see <a href="/#index">this page</a> instead</h4>
     	<h5>If you still have something confused, please go see <a href="/#faq">FAQ page</a>.</h5>
     </article>
+    <footer style="margin: 3em 0 1em 0; color: #777777; font-size: 0.8em;">
+      Powered by <a href="https://github.com/kenpusney/cnmd">CNMD</a> with ♡, hosted on GitHub Pages.<br />
+      <ul class="footer-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </footer>
   </body>
+  <style>
+    footer a {
+      border-bottom: 1px solid #777777;
+    }
+    .footer-nav {
+      padding: 0;
+    }
 
+    .footer-nav li {
+      margin-right: 0.3em;
+      display: inline;
+    }
+  </style>
   <script type="text/javascript">
     function render(hash) {
       $.get(hash.replace(/^#/, "/") + ".cn.md", function(data, err) {
