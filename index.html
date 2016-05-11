@@ -19,7 +19,7 @@
 
   <script type="text/javascript">
     function render(hash) {
-      $.get(hash.replace(/^#/, "/") + ".txt", function(data, err) {
+      $.get(hash.replace(/^#/, "/") + ".cn.md", function(data, err) {
         if (err === "success") {
           $("#content").html(marked(data));
         }
