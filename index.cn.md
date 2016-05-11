@@ -22,7 +22,7 @@ strong interests for fun. now I am paying all my free time with
    + [github:kenpusney/koala]() parser combinator in Kotlin
    + [github:kenpusney/YMind]() a syntax based on YAML to do mindmapping
    + [github:kenpusney/Canvas]() a library in C++ to do some practical things
-   + [githbu:kenpusney/passive]() a modeling tools inspired by [wiki:Tutorial D]
+   + [github:kenpusney/passive]() a modeling tools inspired by [wiki:Tutorial D]()
 
 ## My Interests
 

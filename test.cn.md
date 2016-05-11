@@ -1,7 +1,7 @@
 Test File about this site
 ======
 
-Here is the thing, I want to try something to make this site looks 
+Here is the thing, I want to try something to make this site looks
 like an wiki, but what I can see is that there are no one can fit
 my need. that's why I am trying using simple text file to write this
 things.
@@ -27,16 +27,6 @@ means that you want link this page to `https://en.wikipedia.org/wiki/Markdown`.
 For internal items(like in wikipedia, it's single page for one item),
 just put an `:` as a prefix, e.g. `[:about me]()` ([:about me]()).
 
-But with a `[]()` decorator is far ugly than what we expect, if you want
-just ref an internal item, you can simply put an `:` in front of a word,
-e.g. `:Lisp` (:Lisp).
-
-### sections
-
-Let's say if you want ref a inner section of an item. Like in an URI, just
-treat it as a fragment, tag an hash in between of the item and the section,
-e.g. `:Lisp#History`
-
 ### Other DSLs for complex relationships.
 
 Surely I'll invent lots of stuff with this format to represent my idea,
@@ -51,7 +41,7 @@ List of DSLs which may exists in this site:
 
 ### Contributions
 
-If you have any new idea, or want to help me implement this, please visit 
+If you have any new idea, or want to help me implement this, please visit
 [github:kenpusney/plt-collections/issues/new]()
 
 Thanks!

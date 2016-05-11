@@ -6,6 +6,4 @@ FAQ
 
 #### Why this site is in this kind of ugly styles?
 
-see :test for details.
-
-
+see [:test]() for details.
