@@ -21,6 +21,8 @@
         <li><a href="/">Home</a></li>
         <li><a href="/#about">About</a></li>
         <li><a href="/#contact">Contact</a></li>
+        <li><a href="https://github.com/kenpusney/kimiwiki/new/gh-pages/cnmd">New Page</a></li>
+        <li><a id="edit-page" href="">New Page</a></li>
       </ul>
     </footer>
   </body>
@@ -39,7 +41,9 @@
   </style>
   <script type="text/javascript">
     function render(hash) {
-      $.get(hash.replace(/^#/, "/cnmd/") + ".cn.md", function(data, err) {
+      var url = hash.replace(/^#/, "/cnmd/") + ".cn.md";
+      $("#edit-page").attr("href", "https://github.com/kenpusney/kimiwiki/edit/gh-pages"+url);
+      $.get(url, function(data, err) {
         if (err === "success") {
           $("#content").html(marked(data));
         }
