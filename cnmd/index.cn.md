@@ -1,4 +1,4 @@
-Kimmy Leo's PLT Collection
+Kimmy Leo's Wiki
 =======
 
 // Just for fun
