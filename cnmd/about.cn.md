@@ -19,10 +19,11 @@ section below) if you are interested in following topics:
   * [:Computer Science]() and related areas
   * [:Linguistics]() and related areas
   * [:Semiotics]() and related areas
-  * [:Management]()
   * ...
 
 ## Contribute
 
 You can go to [github:kenpusney/kimiwiki]() to make contribution. If you have
 any idea or concern, you can also submit a issue.
+
+Any contribution here should follow the [:Code Of Conduct]().

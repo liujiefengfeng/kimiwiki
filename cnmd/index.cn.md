@@ -7,6 +7,8 @@ I am working mainly on programming languages & related area with
 strong interests for fun. now I am paying all my free time with
 [github:kenpusney/ng](), the *NEXT GENERATION* programming language.
 
+You can get started from the [:Tech Stuff]()s or [:Non-Tech Stuff]()s.
+
 ## My Projects
 
  - VMs
@@ -26,11 +28,10 @@ strong interests for fun. now I am paying all my free time with
 
 ## My Interests
 
-  - [wiki:Automated theorem proving]()
-  - [wiki:Dependent type]()
-  - [wiki:Formal method]()
-  - [wiki:Formal Semantics]()
-  - [wiki:Linguistics]()
+I am interested in [:Programming Language]()s and their implementation, also
+have strong interests about automation and tools for [:Software Engineering]().
+
+Lots of things I am working on belong to these areas.
 
 ## Suggested links
   - ...
