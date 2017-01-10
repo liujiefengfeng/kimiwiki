@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require './.init'
+require 'fileutils'
+
+def new_category(category_name)
+    if File.directory?(File.join('cnmd', *category_name))
+        puts "Already a category."
+    else
+        Dir.mkdir(File.join("cnmd", *category_name))
+        FileUtils.touch(File.join("cnmd", *category_name, "README.cn.md"))
+    end
+end
+
+command :new, :category do |lst|
+    new_category(lst)
+end
+
+command :new, :post do |lst|
+    if File.exist?(File.join('cnmd', *lst.first(lst.size - 1), lst.last + ".cn.md"))
+        puts "Already a post."
+    else
+        begin
+            FileUtils.touch(File.join("cnmd", *lst.first(lst.size - 1), lst.last + ".cn.md"))
+        rescue => exception
+            puts "please check it is in right category"
+        end
+    end
+end
+
+command :new do |lst|
+    if File.directory?(File.join("cnmd", *lst.first(lst.size - 1)))
+        FileUtils.touch File.join("cnmd", *lst.first(lst.size - 1), lst.last + ".cn.md");
+    else
+        puts "not correct category"
+    end
+end
+
+
+run_command();
