@@ -14,7 +14,7 @@ functional programming language, no such FP things annoying you.
 No vars, no macros, and no MONADs! and every function should
 be explicitly annotated with types.
 
-And ng inherites **templat** from C++/D with much powerful
+And ng inherites **template** from C++/D with much powerful
 enhancement to let you do CTFE (Compile time function execution).
 
 
