@@ -1,6 +1,6 @@
 # About this site
 
-This site is built on top of CNMD syntax, which is an enhanced version for
+This site is built on top of [:CNMD]() syntax, which is an enhanced version for
 markdown. You can go [:test]() page to see why I use this syntax and for more
 details, please check [github:kenpusney/cnmd]().
 
@@ -23,7 +23,8 @@ section below) if you are interested in following topics:
 
 ## Contribute
 
-You can go to [github:kenpusney/kimiwiki]() to make contribution. If you have
-any idea or concern, you can also submit a issue.
+You can go to [github:kenpusney/kimiwiki]() to make contribution and 
+you can ref [:meta]() for details. you can also submit a issue for any 
+idea or concerns.
 
 Any contribution here should follow the [:Code Of Conduct]().
