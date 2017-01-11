@@ -3,17 +3,13 @@
 require './.init'
 require 'fileutils'
 
-def new_category(category_name)
+command :new, :category do |lst|
     if File.directory?(File.join('cnmd', *category_name))
         puts "Already a category."
     else
         Dir.mkdir(File.join("cnmd", *category_name))
         FileUtils.touch(File.join("cnmd", *category_name, "README.cn.md"))
     end
-end
-
-command :new, :category do |lst|
-    new_category(lst)
 end
 
 command :new, :post do |lst|
