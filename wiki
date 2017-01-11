@@ -3,7 +3,7 @@
 require './.init'
 require 'fileutils'
 
-command :new, :category do |lst|
+command :new, :category do |category_name|
     if File.directory?(File.join('cnmd', *category_name))
         puts "Already a category."
     else
