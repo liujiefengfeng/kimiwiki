@@ -11,7 +11,7 @@ currently this page is used as a list collection of all the articles.
 
 ## Techies
 
- - [:article/C++ Template in 21 Days]()
+ - [:article/Cpp Template in 21 Days]()
 
 ## Non Techies
 
