@@ -17,7 +17,7 @@ For more articles from me, please go to my blogs:
 
 ## Techies
 
- - [:article/Cpp Template in 21 Days]()
+ - [:article/Import Model]()
 
 ## Non Techies
 
