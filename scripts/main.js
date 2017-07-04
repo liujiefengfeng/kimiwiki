@@ -33,11 +33,15 @@ requirejs(["render", "zepto", "lodash"], function (render, $, _) {
     $("#btn-search").click(function (e) {
         e.preventDefault();
         var search_term = $("#input-search").val();
+        var strict_mode = false;
+        if (search_term[0] === '+') {
+            strict_mode = true;
+        }
         $.get("/indexing.json", function (data) {
-            var results = _.entries(data instanceof String ? JSON.parse(data) : data).filter(function (key) {
-                return key[0].indexOf(search_term) >= 0;
+            var results = _.entries(_.isString(data) ? JSON.parse(data) : data).filter(function (key) {
+                return strict_mode ? key[0].indexOf(search_term.substring(1)) == 0 :
+                    key[0].indexOf(search_term) >= 0;
             });
-
             if (results.length == 0) {
                 $("#content").html("<h3>No result found</h3>Sorry, cannot find any result with <b>" + search_term + "</b>");
             } else {
