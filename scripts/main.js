@@ -34,7 +34,7 @@ requirejs(["render", "zepto", "lodash"], function (render, $, _) {
         e.preventDefault();
         var search_term = $("#input-search").val();
         $.get("/indexing.json", function (data) {
-            var results = _.entries(JSON.parse(data)).filter(function (key) {
+            var results = _.entries(data instanceof String ? JSON.parse(data) : data).filter(function (key) {
                 return key[0].indexOf(search_term) >= 0;
             });
 
