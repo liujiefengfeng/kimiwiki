@@ -17,8 +17,6 @@ party module to the main program.
 
 ## Environment & Symbol management
 
-### 
-
 ## Models
 
 ### Direct include

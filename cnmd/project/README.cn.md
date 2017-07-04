@@ -13,6 +13,7 @@ Here is a list of projects on GitHub I am working on:
    + [github:kenpusney/fed]() ng-implementation.
    + [github:Yample/Yample]() write AST by hand to programming.
  - Others
+   + [github:rec-framework/rec-core]() the data modeling/transformation framework
    + [github:kenpusney/lit]() language invention tools in Java
    + [github:kenpusney/koala]() parser combinator in Kotlin
    + [github:kenpusney/YMind]() a syntax based on YAML to do mindmapping
