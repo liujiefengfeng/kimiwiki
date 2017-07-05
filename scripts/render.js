@@ -1,4 +1,5 @@
-define(["./zepto", "./marked"], function ($, marked) {
+define(["./zepto", "./marked", "./alert"], function ($, marked, alert) {
+    
     function render(hash, isDir) {
         isDir = !(typeof (isDir) === "undefined") && isDir;
         var url = hash.replace(/^#/, "/cnmd/") + ".cn.md";
@@ -14,6 +15,8 @@ define(["./zepto", "./marked"], function ($, marked) {
             error: function (data, status, err) {
                 if (!isDir) {
                     render(hash + "/README", true);
+                } else {
+                    alert.showAlert();
                 }
             }
         });

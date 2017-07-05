@@ -10,7 +10,12 @@ requirejs(["render", "search", "zepto", "lodash"], function (render, search, $, 
         }
     })
     $(window).on("hashchange", function (e) {
-        render(location.hash);
+        if (location.hash) {
+            render(location.hash);
+        } else {
+            render("#README");
+        }
+
         e.preventDefault();
     });
 
