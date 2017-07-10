@@ -44,4 +44,8 @@ command :serve do |lst|
     s.start
 end
 
+command :hash do |lst|
+    File.write('hashing.json', hashing(Dir["**/*.cn.md"]))
+end
+
 run_command();

@@ -1,6 +1,8 @@
 require 'set'
 require 'json'
 require 'rmmseg'
+require 'digest/sha1'
+require 'base64'
 
 RMMSeg::Dictionary.load_dictionaries
 
@@ -78,4 +80,17 @@ def indexing(documents)
   end
   
   return index.to_json
+end
+
+def hashing(documents)
+  hashing = Hash.new
+  hashing["reversed"] = Hash.new;
+  documents.each do |doc|
+    wikiItem = doc.gsub(/^cnmd\//, "").gsub(/\.cn\.md$/, "")
+    hash = Digest::SHA256.hexdigest(wikiItem)[0..9]
+    hashing[hash] = wikiItem
+    hashing["reversed"][wikiItem] = hash
+  end
+
+  return hashing.to_json
 end

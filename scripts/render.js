@@ -1,25 +1,31 @@
-define(["./zepto", "./lodash", "./marked", "./alert", "./search"], function ($, _, marked, alert, search) {
+define(["./zepto",
+    "./lodash",
+    "./marked",
+    "./alert",
+    "./search",
+    "./direct"],
+    function ($, _, marked, alert, search, direct) {
 
     var tplNavInside = _.template("<li><a href='<%= href %>'><%= name %></a></li>")
     var tplNavLast = _.template("<li class='active'><%= name %></li>")
 
-    function isHome(seg) {
+    var isHome = function (seg) {
         return seg == "README" || seg.length === 0;
     }
 
-    function buildBreadCrumb(hash) {
+    var buildBreadCrumb = function (hash) {
         var segments = hash.split("/");
 
         if (segments.length === 0 || isHome(segments[0])) {
             return '<li class="active">Home</li>';
-        } 
-        
+        }
+
         var segment = segments[0];
         var breads = [];
         href = "#"
         var i = 0;
         while (segment != "README") {
-            href += ( href === "#"? segment : "/" + segment)
+            href += (href === "#" ? segment : "/" + segment)
             breads.push({ href: href, name: decodeURIComponent(segment), template: tplNavInside });
             i++;
             if (i >= segments.length) break;
@@ -33,11 +39,15 @@ define(["./zepto", "./lodash", "./marked", "./alert", "./search"], function ($, 
         }, "");
     }
 
-    function render(hash, isDir) {
+    var render = function (hash, isDir) {
 
         if (hash.indexOf("#search") == 0) {
             search_term = hash.replace("#search/", "");
             return search.search(decodeURIComponent(search_term));
+        }
+
+        if (hash.indexOf("#w/") == 0) {
+            return direct.direct(hash);
         }
 
         isDir = !(typeof (isDir) === "undefined") && isDir;
