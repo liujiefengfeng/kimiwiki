@@ -1,6 +1,12 @@
-define(["./zepto", "./marked", "./alert"], function ($, marked, alert) {
+define(["./zepto", "./marked", "./alert", "./search"], function ($, marked, alert, search) {
     
     function render(hash, isDir) {
+
+        if (hash.indexOf("#search") == 0) {
+            search_term = hash.replace("#search/", "");
+            return search.search(decodeURIComponent(search_term));
+        }
+
         isDir = !(typeof (isDir) === "undefined") && isDir;
         var url = hash.replace(/^#/, "/cnmd/") + ".cn.md";
 

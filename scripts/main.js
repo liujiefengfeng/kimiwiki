@@ -1,7 +1,7 @@
 requirejs.config({
     "baseUrl": "scripts"
 });
-requirejs(["render", "search", "zepto", "lodash"], function (render, search, $, _) {
+requirejs(["render", "zepto", "lodash"], function (render, $, _) {
     $(function () {
         if (location.hash) {
             render(location.hash);
@@ -26,6 +26,6 @@ requirejs(["render", "search", "zepto", "lodash"], function (render, search, $, 
             return;
         }
 
-        search.search(search_term);
+        location.hash = "#search/" + search_term;
     });
 });
