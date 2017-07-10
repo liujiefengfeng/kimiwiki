@@ -50,6 +50,10 @@ define(["./zepto",
             return direct.direct(hash);
         }
 
+        if (hash.indexOf("#d/") == 0) {
+            return direct.shortLink(hash);
+        }
+
         isDir = !(typeof (isDir) === "undefined") && isDir;
         var url = hash.replace(/^#/, "/cnmd/") + ".cn.md";
 

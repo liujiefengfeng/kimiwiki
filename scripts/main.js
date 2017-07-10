@@ -1,7 +1,12 @@
 requirejs.config({
     "baseUrl": "scripts"
 });
-requirejs(["render","alert", "zepto", "lodash", ], function (render, alert, $, _) {
+requirejs(["render",
+    "alert",
+    "direct",
+    "zepto",
+    "lodash"],
+    function (render, alert, direct, $, _) {
     $(function () {
         alert.showLoading();
         if (location.hash) {
@@ -30,4 +35,13 @@ requirejs(["render","alert", "zepto", "lodash", ], function (render, alert, $, _
 
         location.hash = "#search/" + search_term;
     });
+
+    $("#short-link").click(function (e) {
+        e.preventDefault();
+        if (/^#(w|d|search)\//.test(location.hash)) {
+            return;
+        }
+
+        location.hash = "#d/" + location.hash.replace(/^#/, "");
+    })
 });
