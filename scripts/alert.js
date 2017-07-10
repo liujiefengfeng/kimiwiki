@@ -6,19 +6,28 @@ define(["./zepto"], function ($) {
         return this;
     };
 
-    function showAlert() {
-        $("#error").html("<b>Error:</b> under construction");
+    function showAlert(html) {
+        $("#error").html(html);
         $("#error").show();
         $("#error").center();
 
         setTimeout(function() {
             $("#error").hide();
-            history.back();
         }, 1000);
     }
 
+    function showLoading() {
+        showAlert("Loading...")
+    }
+
+    function hide() {
+        $("#error").hide();
+    }
+
     return {
-        showAlert: showAlert
+        showAlert: showAlert,
+        showLoading: showLoading,
+        hide: hide
     }
 
 });

@@ -1,8 +1,9 @@
 requirejs.config({
     "baseUrl": "scripts"
 });
-requirejs(["render", "zepto", "lodash"], function (render, $, _) {
+requirejs(["render","alert", "zepto", "lodash", ], function (render, alert, $, _) {
     $(function () {
+        alert.showLoading();
         if (location.hash) {
             render(location.hash);
         } else {
@@ -10,6 +11,7 @@ requirejs(["render", "zepto", "lodash"], function (render, $, _) {
         }
     })
     $(window).on("hashchange", function (e) {
+        alert.showLoading();
         if (location.hash) {
             render(location.hash);
         } else {

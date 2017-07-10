@@ -7,6 +7,8 @@ define(["./zepto", "./lodash"], function ($, _) {
     var tplSearchResult = _.template("<h3>Found:</h3><dl><%= results %></dl>");
     var tplNotFound = _.template("<h3>No result found</h3>" +
         "Sorry, cannot find any result with <b> <%- term %> </b>");
+    var tplSearchNav = _.template("<li><a href='#README'>Home</a></li>" +
+        "<li class='active'>Search of <b><%= term %></b></li>")
 
     var renderSubResult = function (result) {
         return tplResultList({
@@ -49,6 +51,7 @@ define(["./zepto", "./lodash"], function ($, _) {
             var results = _.entries(_.isString(data) ? JSON.parse(data) : data).filter(function (key) {
                 return matches(key[0], search_term, strict_mode);
             });
+            $("#nav").html(tplSearchNav({ term: search_term }));
             if (results.length == 0) {
                 $("#content").html(renderNotfound(search_term));
             } else {
