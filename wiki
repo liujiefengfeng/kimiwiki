@@ -2,7 +2,9 @@
 
 require './src/init'
 require './src/indexing'
+
 require 'fileutils'
+require 'webrick'
 
 command :new, :category do |category_name|
     if File.directory?(File.join('cnmd', *category_name))
@@ -35,6 +37,11 @@ end
 
 command :index do |lst|
     File.write('indexing.json', indexing(Dir['**/*.cn.md']))
+end
+
+command :serve do |lst|
+    s = WEBrick::HTTPServer.new(:Port => 4000, :DocumentRoot => Dir::pwd)
+    s.start
 end
 
 run_command();
