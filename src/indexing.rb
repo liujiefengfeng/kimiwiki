@@ -1,5 +1,20 @@
 require 'set'
 require 'json'
+require 'rmmseg'
+
+RMMSeg::Dictionary.load_dictionaries
+
+def segment(algo)
+  words = Array.new
+
+  token = algo.next_token
+  until token.nil?
+    words << token.text
+    token = algo.next_token
+  end
+
+  words
+end
 
 class Entry
   
@@ -54,12 +69,11 @@ def indexing(documents)
     
     File.open(doc) do |f|
       f.each_line do |line|
-        words = line.split
-        
+        words = segment(RMMSeg::Algorithm.new(line)); 
+        p words
         words
-          .map { |w| w.gsub(/[^0-9a-z:\\\/.]/i, '').downcase }
           .select { |w| w.length >= 3 }
-          .each {|w| index.append(w, wikiItem) }
+          .each {|w| index.append(w.force_encoding('UTF-8').downcase, wikiItem) }
       end
     end
   end
