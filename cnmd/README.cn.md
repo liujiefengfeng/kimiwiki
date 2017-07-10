@@ -3,10 +3,6 @@ Kimmy Leo's Wiki
 
 // Just for fun
 
-I am working mainly on programming languages & related area with
-strong interests for fun. now I am paying all my free time with
-[github:kenpusney/ng](), the *NEXT GENERATION* programming language.
-
 You can get started from the [:Tech Stuff]()s or [:Non-Tech Stuff]()s.
 
 ## Guides
