@@ -70,7 +70,6 @@ def indexing(documents)
     File.open(doc) do |f|
       f.each_line do |line|
         words = segment(RMMSeg::Algorithm.new(line)); 
-        p words
         words
           .select { |w| w.length >= 3 }
           .each {|w| index.append(w.force_encoding('UTF-8').downcase, wikiItem) }
