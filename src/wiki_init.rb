@@ -16,6 +16,7 @@ class WikiContext
 
         File.write("cnmd/README.cn.md",ERB.new(@README_template).result(binding))
         File.write("CNAME", @custom_domain) if @custom_domain
+        FileUtils.cp(".template/pre-commit", ".git/hooks/pre-commit")
     end
 end
 
