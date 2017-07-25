@@ -11,25 +11,21 @@ class WikiContext
     end
 
     def render
-        File.open("index.html") { |f|
-            f.write ERB.new(@index_template).result(binding)
-        }
+        File.write("index.html", ERB.new(@index_template).result(binding))
 
-        File.open("cnmd/README.cn.md") { |f|
-            f.write ERB.new(@README_template).result(binding)
-        }
+        File.write("cnmd/README.cn.md",ERB.new(@README_template).result(binding))
     end
 end
 
 def cleanup
     FileUtils.rm_rf("cnmd/.", secure: true)
-    FileUtils.rm("CNAME")
-    FileUtils.rm("*.json")
+    FileUtils.rm("CNAME", force: true)
+    FileUtils.rm(Dir["*.json"], force: true)
 end
 
 def prompt(opts, key, hint)
-    print(hint):
-    val = gets.strip
+    print(hint)
+    val = STDIN.gets.chomp
     opts[key] = val.empty? ? nil : val
 end
 

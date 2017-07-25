@@ -50,6 +50,7 @@ end
 
 command :init do |lst|
     require "./src/wiki_init"
+    initwiki
 end
 
 run_command();
