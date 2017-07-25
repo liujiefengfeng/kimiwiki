@@ -5,6 +5,7 @@ class WikiContext
     def initialize(options)
         @wiki_title = options[:wiki_title] || "Just another wiki"
         @github_repo = options[:github_repo] || "kenpusney/wiki"
+        @custom_domain = options[:custom_domain]
 
         @index_template = File.read("./.template/index.html.erb")
         @README_template = File.read("./.template/README.md.erb")
@@ -14,6 +15,7 @@ class WikiContext
         File.write("index.html", ERB.new(@index_template).result(binding))
 
         File.write("cnmd/README.cn.md",ERB.new(@README_template).result(binding))
+        File.write("CNAME", @custom_domain) if @custom_domain
     end
 end
 
@@ -34,5 +36,6 @@ def initwiki
     opts = {}
     prompt(opts, :wiki_title, "Your wiki title:")
     prompt(opts, :github_repo, "Your repo [e.g. kenpusney/wiki]:")
+    prompt(opts, :custom_domain, "Your custom domain [default: <username>.github.io/wiki]:")
     WikiContext.new(opts).render
 end
