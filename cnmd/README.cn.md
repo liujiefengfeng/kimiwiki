@@ -1,4 +1,4 @@
-Just another wiki
+funfun's wiki
 ==========
 
-Welcome to Just another wiki,it is powered by [github:kenpusney/wiki]().
+Welcome to funfun's wiki,it is powered by [github:kenpusney/wiki]().
