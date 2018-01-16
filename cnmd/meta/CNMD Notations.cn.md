@@ -1,3 +1,0 @@
-CNMD Notations
-========
-

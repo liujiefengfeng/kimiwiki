@@ -3,9 +3,9 @@
 
 <head>
   <meta charset='utf-8' />
-  <meta name="description" content="Just another wiki" />
+  <meta name="description" content="<%= @wiki_title %>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just another wiki</title>
+  <title><%= @wiki_title %></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
   <script type="text/javascript" src="scripts/require.js" data-main="scripts/main.js"></script>
@@ -32,7 +32,7 @@
       <li><a href="/">Home</a></li>
       <li><a href="/#about">About</a></li>
       <li><a href="/#contact">Contact</a></li>
-      <li><a href="https://github.com/kenpusney/wiki/new/gh-pages/cnmd">New Page</a></li>
+      <li><a href="https://github.com/<%= @github_repo %>/new/gh-pages/cnmd">New Page</a></li>
       <li><a id="edit-page" href="">Edit Page</a></li>
     </ul>
   </footer>

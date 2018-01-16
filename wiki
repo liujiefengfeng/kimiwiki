@@ -48,4 +48,9 @@ command :hash do |lst|
     File.write('hashing.json', hashing(Dir["**/*.cn.md"]))
 end
 
+command :init do |lst|
+    require "./src/wiki_init"
+    initwiki
+end
+
 run_command();

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+./wiki index
+./wiki hash
+
+git add *.json

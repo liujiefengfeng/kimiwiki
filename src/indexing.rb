@@ -1,8 +1,9 @@
 require 'set'
 require 'json'
-require 'rmmseg'
 require 'digest/sha1'
 require 'base64'
+require 'rubygems'
+require 'rmmseg'
 
 RMMSeg::Dictionary.load_dictionaries
 
