@@ -64,7 +64,7 @@ define(["./zepto",
                 alert.hide();
                 $("#nav").html(buildBreadCrumb(hash.replace(/^#/, "")));
                 $("#content").html(marked(data));
-                $("#edit-page").attr("href", "https://github.com/kenpusney/kimiwiki/edit/gh-pages" + url);
+                $("#edit-page").attr("href", "https://github.com/liujiefengfeng/wiki/edit/gh-pages" + url);
             },
 
             error: function (data, status, err) {
